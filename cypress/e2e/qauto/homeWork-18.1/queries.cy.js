@@ -1,4 +1,4 @@
-import preLogin from './helpers/pre-login';
+import preLogin from '../helpers/pre-login';
 
 describe('cypress queries', () => {
   before(() => {
