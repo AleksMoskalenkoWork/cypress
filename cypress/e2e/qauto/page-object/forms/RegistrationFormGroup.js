@@ -201,4 +201,4 @@ class RegistrationFormGroup {
       .click();
   }
 }
-export default new RegistrationFormGroup();
+module.exports = new RegistrationFormGroup();

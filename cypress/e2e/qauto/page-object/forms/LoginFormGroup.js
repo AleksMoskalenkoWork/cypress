@@ -10,4 +10,4 @@ class LoginFormGroup {
   }
 }
 
-export default new LoginFormGroup();
+module.exports = new LoginFormGroup();
