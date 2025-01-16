@@ -1,4 +1,4 @@
-import preLogin from '../helpers/pre-login';
+import HomePage from '../page-object/pages/HomePage';
 
 describe('cypress queries', () => {
   before(() => {
@@ -6,7 +6,7 @@ describe('cypress queries', () => {
   });
   beforeEach(() => {
     // runs before every it() test block
-    preLogin();
+    HomePage.openPage();
   });
   afterEach(() => {
     // runs after every it() test block

@@ -4,3 +4,7 @@ node_modules/
 .vscode/*
 # Lock file
 package-lock.json
+# reporter
+cypress/results/*
+cypress/reports/*
+cypress/downloads/* 

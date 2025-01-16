@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
+    baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
     screenshotOnRunFailure: false,
     experimentalRunAllSpecs: true,
     reporter: 'cypress-mochawesome-reporter',

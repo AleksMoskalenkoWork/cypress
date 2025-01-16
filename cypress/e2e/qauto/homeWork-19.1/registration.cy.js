@@ -1,17 +1,15 @@
-const login = require('../helpers/login');
-const openLoginModal = require('../helpers/modal/login/open-login-modal');
-const clickRegistrationButton = require('../helpers/modal/registration/click-registration-button');
-const FormGroup = require('../helpers/modal/registration/form-group');
-const openRegistrationModal = require('../helpers/modal/registration/open-registration-modal');
-const preLogin = require('../helpers/pre-login');
+const testUserData = require('../helpers/testUserData');
+const LoginFormGroup = require('../page-object/forms/LoginFormGroup');
+const RegistrationFormGroup = require('../page-object/forms/RegistrationFormGroup');
+const HomePage = require('../page-object/pages/HomePage');
 
-describe('registration modal errors', () => {
+describe('trigger and verify registration form group errors for input field', () => {
   before(() => {
     // runs once before all tests
   });
   beforeEach(() => {
     // runs before every it() test block
-    preLogin();
+    HomePage.openPage();
     cy.intercept('POST', '/api/auth/signin').as('signin');
   });
   afterEach(() => {
@@ -20,43 +18,161 @@ describe('registration modal errors', () => {
   after(() => {
     // runs once after all tests
   });
-  context('errors', () => {
-    // -- Start: Cypress Tests --
-    it('comparison border color red for all empty input', () => {
-      // Write your test case one here
-      openRegistrationModal();
-      FormGroup.comparisonBorderColor();
-    });
+  context(
+    'trigger errors on input "Name" field in registration form group',
+    () => {
+      it('trigger empty field error and verify border color value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyBorderColorErrorForEmptyNameField();
+      });
 
-    it('comparison for all empty field error text value', () => {
-      // Write your test case here
-      openRegistrationModal();
-      FormGroup.comparisonEmptyFieldError();
-    });
+      it('trigger empty field error and verify text error value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyErrorTextValueForEmptyNameField();
+      });
 
-    it('comparison for all wrong field error text value', () => {
-      // Write your test case here
-      openRegistrationModal();
-      FormGroup.comparisonWrongDataErrors();
-    });
+      it('trigger and verify wrong data error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongDataErrorTextValueForNameField();
+        RegistrationFormGroup.verifyWrongDataErrorTextValueForNameField();
+      });
 
-    it('comparison for all wrong length field error text value', () => {
-      // Write your test case here
-      openRegistrationModal();
-      FormGroup.comparisonWrongLengthErrors();
-    });
+      it('trigger and verify wrong length error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongLengthErrorTextValueForNameField();
+        RegistrationFormGroup.verifyWrongLengthErrorTextValueForNameField();
+      });
+    }
+  );
 
+  context(
+    'trigger errors on input "Last name" field in registration form group',
+    () => {
+      it('trigger empty field error and verify border color value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyBorderColorErrorForEmptyLastNameField();
+      });
+
+      it('trigger empty field error and verify text error value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyErrorTextValueForEmptyLastNameField();
+      });
+
+      it('trigger and verify wrong data error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongDataErrorTextValueForLastNameField();
+        RegistrationFormGroup.verifyWrongDataErrorTextValueForLastNameField();
+      });
+
+      it('trigger and verify wrong length error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongLengthErrorTextValueForLastNameField();
+        RegistrationFormGroup.verifyWrongLengthErrorTextValueForLastNameField();
+      });
+    }
+  );
+
+  context(
+    'trigger errors on input "Email" field in registration form group',
+    () => {
+      it('trigger empty field error and verify border color value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyBorderColorErrorForEmptyEmailField();
+      });
+
+      it('trigger empty field error and verify text error value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyErrorTextValueForEmptyEmailField();
+      });
+
+      it('trigger and verify wrong data error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongDataErrorTextValueForEmailField();
+        RegistrationFormGroup.verifyWrongDataErrorTextValueForEmailField();
+      });
+    }
+  );
+
+  context(
+    'trigger errors on input "Password" field in registration form group',
+    () => {
+      it('trigger empty field error and verify border color value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyBorderColorErrorForEmptyPasswordField();
+      });
+
+      it('trigger empty field error and verify text error value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyErrorTextValueForEmptyPasswordField();
+      });
+
+      it('trigger and verify wrong data error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongDataErrorTextValueForPasswordField();
+        RegistrationFormGroup.verifyWrongDataErrorTextValueForPasswordField();
+      });
+    }
+  );
+
+  context(
+    'trigger errors on input "Re-enter password" field in registration form group',
+    () => {
+      it('trigger empty field error and verify border color value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyBorderColorErrorForEmptyReEnterPasswordField();
+      });
+
+      it('trigger empty field error and verify text error value', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerErrorForAllEmptyFieldInFormGroup();
+        RegistrationFormGroup.verifyErrorTextValueForEmptyReEnterPasswordField();
+      });
+
+      it('trigger and verify wrong data error', () => {
+        // Write your test case here
+        HomePage.openSignUpModal();
+        RegistrationFormGroup.triggerWrongDataErrorTextValueForReEnterPasswordField();
+        RegistrationFormGroup.verifyWrongDataErrorTextValueForReEnterPasswordField();
+      });
+    }
+  );
+
+  context('successful registration and login', () => {
     it('successful registration', () => {
       // Write your test case here
-      openRegistrationModal();
-      FormGroup.successfulRegistration();
-      clickRegistrationButton();
+      HomePage.openSignUpModal();
+      RegistrationFormGroup.successfulRegistration(testUserData);
     });
 
     it('successful login', () => {
       // Write your test case here
-      openLoginModal();
-      login();
+      HomePage.openSignInModal();
+      LoginFormGroup.successfulLogin(testUserData);
     });
   });
 });
